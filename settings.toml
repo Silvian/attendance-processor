@@ -1,0 +1,10 @@
+# Attendance Processor Settings
+
+DEBUG = "true"
+SECRETS_FILE = "secret-key.json"
+DOCUMENT_KEY = "gsheet document key"
+SMS_API_URL = "sms api url"
+SMS_API_KEY = "sms api secret"
+SMS_SENDER_ID = "Sender ID"
+COUNTRY_CODE = "GB"
+ATTENDEES_MAX = 100

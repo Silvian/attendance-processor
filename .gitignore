@@ -135,3 +135,6 @@ dmypy.json
 
 # Ignore dynaconf secret files
 .secrets.*
+
+# Ignore any json config file
+*.json
