@@ -4,6 +4,7 @@ import requests
 
 from datetime import datetime
 from oauth2client.service_account import ServiceAccountCredentials
+
 from config import settings
 
 
@@ -75,7 +76,7 @@ def send_text_notification(data, status):
 def main():
     row = 2
     for record in wks.get_all_records():
-        if not record['Processed timestamp']:
+        if not record['Processed Timestamp']:
             if row <= settings.ATTENDEES_MAX + 1:
                 status = CONFIRMED
             else:
