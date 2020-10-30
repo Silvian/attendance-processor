@@ -32,24 +32,24 @@ def fix_number_formatting(number):
 
 
 def send_text_notification(data, status):
-    if data['Mobile'] and data['First Name']:
+    if data['Mobil'] and data['Prenume']:
 
         if status == CONFIRMED:
             message = (
-                f"Salutare {data['First Name']}! Vă mulțumim pentru înscrierea la biserica din Harlesden pentru acest Sabat. "
+                f"Salutare {data['Prenume']}! Vă mulțumim pentru înscrierea la biserica din Harlesden pentru acest Sabat. "
                 f"Prin acest text vă confirmăm că înscrierea dumneavoastră este confirmată. "
                 f"Totuși, dacă din diferite motive nu veți putea ajunge, vă rugăm să ne informați prin secretara "
                 f"bisericii noastre Iana la numarul de tel 07404 784 429. Vă mulțumim!"
             )
         else:
             message = (
-                f"Salutare {data['First Name']}! Din păcate înscrierea dumneavoastră la biserica din Harlesden pentru "
+                f"Salutare {data['Prenume']}! Din păcate înscrierea dumneavoastră la biserica din Harlesden pentru "
                 f"Sabatul aceasta a eșuat, întrucât nu mai sunt locuri libere. "
                 f"Vă mulțumim!"
             )
 
         if settings.DEBUG == "true":
-            logger.warning("Sending message to %s with body: %s", data['Mobile'], message)
+            logger.warning("Sending message to %s with body: %s", data['Mobil'], message)
             return True
 
         try:
@@ -60,7 +60,7 @@ def send_text_notification(data, status):
                     'x-api-key': settings.SMS_API_KEY,
                 },
                 json={
-                    "phone": fix_number_formatting(data['Mobile']),
+                    "phone": fix_number_formatting(data['Mobil']),
                     "country_code": settings.COUNTRY_CODE,
                     "sender_id": settings.SMS_SENDER_ID,
                     "message": message,
