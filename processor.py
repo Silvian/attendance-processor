@@ -36,14 +36,16 @@ def send_text_notification(data, status):
 
         if status == CONFIRMED:
             message = (
-                f"Hi {data['First Name']}! Thank you for registering to visit Harlesden church this coming sabbath. "
-                f"Your attendance has been confirmed and we hope to see you there!"
+                f"Salutare {data['First Name']}! Vă mulțumim pentru înscrierea la biserica din Harlesden pentru acest Sabat. "
+                f"Prin acest text vă confirmăm că înscrierea dumneavoastră este confirmată. "
+                f"Totuși, dacă din diferite motive nu veți putea ajunge, vă rugăm să ne informați prin secretara "
+                f"bisericii noastre Iana la numarul de tel 07404 784 429. Vă mulțumim!"
             )
         else:
             message = (
-                f"Hi {data['First Name']}! Thank you for registering to visit Harlesden church this coming sabbath. "
-                f"Unfortunately due to high demand the max number of people attending has been reached. "
-                f"You cannot attend this sabbath."
+                f"Salutare {data['First Name']}! Din păcate înscrierea dumneavoastră la biserica din Harlesden pentru "
+                f"Sabatul aceasta a eșuat, întrucât nu mai sunt locuri libere. "
+                f"Vă mulțumim!"
             )
 
         if settings.DEBUG == "true":
