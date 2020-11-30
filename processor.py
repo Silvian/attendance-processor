@@ -24,6 +24,7 @@ wks = gc.open_by_key(settings.DOCUMENT_KEY).sheet1
 def fix_number_formatting(number):
     if number:
         number = str(number)
+        number = number.strip(" ")
         if not number.startswith('+'):
             if not number.startswith('0'):
                 return "0" + number
