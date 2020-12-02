@@ -24,12 +24,26 @@ wks = gc.open_by_key(settings.DOCUMENT_KEY).sheet1
 def fix_number_formatting(number):
     if number:
         number = str(number)
-        number = number.strip(" ")
+        number = number.strip().replace(" ", "")
         if not number.startswith('+'):
             if not number.startswith('0'):
                 return "0" + number
+        else:
+            if number.find("0") == 3:
+                return number[:3] + number[4:]
 
     return number
+
+
+def validate_phone_number(number):
+    if number.startswith('0'):
+        if len(number) != 11:
+            return False
+    if number.startswith('+'):
+        if len(number) != 13:
+            return False
+
+    return True
 
 
 def send_text_notification(data, status):
@@ -49,8 +63,12 @@ def send_text_notification(data, status):
                 f"Vă mulțumim!"
             )
 
+        number = fix_number_formatting(data['Mobil'])
+        if not validate_phone_number(number):
+            return False
+
         if settings.DEBUG == "true":
-            logger.warning("Sending message to %s with body: %s", data['Mobil'], message)
+            logger.warning("Sending message to %s with body: %s", number, message)
             return True
 
         try:
@@ -61,7 +79,7 @@ def send_text_notification(data, status):
                     'x-api-key': settings.SMS_API_KEY,
                 },
                 json={
-                    "phone": fix_number_formatting(data['Mobil']),
+                    "phone": number,
                     "country_code": settings.COUNTRY_CODE,
                     "sender_id": settings.SMS_SENDER_ID,
                     "message": message,
