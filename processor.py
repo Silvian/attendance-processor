@@ -10,15 +10,10 @@ from config import settings
 
 logger = logging.getLogger(__name__)
 
+SCOPE = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 
 CONFIRMED = "Confirmed"
 REJECTED = "Rejected"
-
-scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-credentials = ServiceAccountCredentials.from_json_keyfile_name(settings.SECRETS_FILE, scope)
-gc = gspread.authorize(credentials)
-
-wks = gc.open_by_key(settings.DOCUMENT_KEY).sheet1
 
 
 def fix_number_formatting(number):
@@ -95,6 +90,11 @@ def send_text_notification(data, status):
 
 
 def main():
+    credentials = ServiceAccountCredentials.from_json_keyfile_name(settings.SECRETS_FILE, SCOPE)
+    gc = gspread.authorize(credentials)
+
+    wks = gc.open_by_key(settings.DOCUMENT_KEY).sheet1
+
     row = 2
     for record in wks.get_all_records():
         if not record['Processed Timestamp']:

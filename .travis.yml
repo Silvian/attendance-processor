@@ -3,7 +3,6 @@ python:
   - "3.8"
 
 install:
-  - touch secret-key.json
   - pip install -r requirements.txt
 
 script:
