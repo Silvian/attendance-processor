@@ -32,7 +32,7 @@ def test_send_text_notification(mocker, data, status, expected_result):
         ),
     ]
 )
-def test_send_text_notification_missing_zero_number(mocker, data, status, expected_result):
+def test_send_text_notification_invalid_number(mocker, data, status, expected_result):
     mocker.return_value.status_code = 200
     result = send_text_notification(data, status)
     assert expected_result == result
@@ -49,7 +49,7 @@ def test_send_text_notification_missing_zero_number(mocker, data, status, expect
         ),
     ]
 )
-def test_send_text_notification_invalid_number(mocker, data, status, expected_result):
+def test_send_text_notification_missing_zero_number(mocker, data, status, expected_result):
     mocker.return_value.status_code = 200
     result = send_text_notification(data, status)
     assert expected_result == result
