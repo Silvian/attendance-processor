@@ -5,7 +5,7 @@ from datetime import datetime
 from oauth2client.service_account import ServiceAccountCredentials
 
 from config import settings
-from notifications.sms import send_text_notification
+from notifications.tasks import send_notification
 from utils.states import AcceptanceStatus
 
 
@@ -28,7 +28,7 @@ def main():
             else:
                 status = AcceptanceStatus.REJECTED
 
-            if send_text_notification(record, status):
+            if send_notification(record, status):
                 cell = "F" + str(row)
                 wks.update_acell(cell, status)
                 cell = "G" + str(row)

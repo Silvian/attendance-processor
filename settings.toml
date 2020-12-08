@@ -3,6 +3,12 @@
 DEBUG = "true"
 SECRETS_FILE = "secret-key.json"
 DOCUMENT_KEY = "gsheet document key"
+EMAIL_FROM_ADDRESS = "info@example.com"
+EMAIL_SMTP_HOST = "mail.example.com"
+EMAIL_SMTP_PORT = 587
+EMAIL_USER_NAME = "username"
+EMAIL_PASSWORD = "password"
+SMS_ALERTS = "false"
 SMS_API_URL = "sms api url"
 SMS_API_KEY = "sms api secret"
 SMS_SENDER_ID = "Sender ID"
