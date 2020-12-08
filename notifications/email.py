@@ -25,7 +25,12 @@ def send_email_notification(data, subject, contents):
                   <body>
                     <p>Salutare {first_name},<br/>
                        <br/>
-                       {contents}
+                       {contents}<br/>
+                       <br/>
+                       Regards,
+                       <br/>
+                       <br/>
+                       <b>London Romanian SDA Church</b>
                     </p>
                   </body>
                 </html>
