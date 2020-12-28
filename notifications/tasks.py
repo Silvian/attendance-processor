@@ -18,7 +18,7 @@ def send_notification(data, status):
             subject = "Înscrierea ta a fost înregistrată cu sucess"
             message = (
                 f"Vă mulțumim pentru înscrierea la biserica din Harlesden pentru acest Sabat. "
-                f"Prin acest text vă confirmăm că înscrierea dumneavoastră este confirmată. "
+                f"Prin acest mesaj vă confirmăm că înscrierea dumneavoastră este confirmată. "
                 f"Totuși, dacă din diferite motive nu veți putea ajunge, vă rugăm să ne informați prin secretara "
                 f"bisericii noastre Iana la numarul de tel 07404 784 429. Vă mulțumim!"
             )
