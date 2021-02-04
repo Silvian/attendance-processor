@@ -1,5 +1,5 @@
 # Attendance Processor
-[![Build Status](https://travis-ci.org/Silvian/attendance-processor.svg?branch=main)](https://travis-ci.com/github/Silvian/attendance-processor)
+[![<Attendance Processor>](https://circleci.com/gh/circleci/circleci-docs.svg?style=shield)](https://app.circleci.com/pipelines/github/Silvian/attendance-processor)
 
 Romanian SDA Church Harlesden attendance google forms gsheets processor.
 
