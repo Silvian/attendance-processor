@@ -12,5 +12,7 @@ SMS_ALERTS = "false"
 SMS_API_URL = "sms api url"
 SMS_API_KEY = "sms api secret"
 SMS_SENDER_ID = "Sender ID"
+SETTINGS_API_URL = "settings api url"
+SETTINGS_API_KEY = "settings api key"
 COUNTRY_CODE = "GB"
 ATTENDEES_MAX = 100
