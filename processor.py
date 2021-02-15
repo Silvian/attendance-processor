@@ -6,6 +6,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 
 from config import settings
 from notifications.tasks import send_notification
+from utils.attendees_config import get_attendees_config
 from utils.states import AcceptanceStatus
 
 
@@ -21,9 +22,10 @@ wks = gc.open_by_key(settings.DOCUMENT_KEY).sheet1
 def main():
     # Process worksheet
     row = 2
+    max_attendees = get_attendees_config()
     for record in wks.get_all_records():
         if not record['Processed Timestamp']:
-            if row <= settings.ATTENDEES_MAX + 1:
+            if row <= max_attendees + 1:
                 status = AcceptanceStatus.CONFIRMED
             else:
                 status = AcceptanceStatus.REJECTED
