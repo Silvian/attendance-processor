@@ -13,5 +13,5 @@ def get_attendees_config():
         return settings.ATTENDEES_MAX
 
     data = response.json()["body"]
-    max_attendees = data["max"]
+    max_attendees = int(data["max"])
     return max_attendees
